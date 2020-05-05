@@ -1,8 +1,9 @@
 import React from "react";
-import HelloBootstrap from "./components/HelloBootstrap";
+import Dinogame from "./components/HelloBootstrap";
+import Pictures from "./components/images";
 
 function App() {
-  return <HelloBootstrap />;
+  return <Dinogame />;
 }
 
 export default App;
