@@ -6,39 +6,41 @@ class App extends Component {
     Pictures: [
       {
         id: 1,
-        clicked: true,
+        clicked: "elbow",
         href: "https://i.imgur.com/LFXgB63.png",
       },
       {
         id: 2,
-        clicked: true,
+        clicked: "elbow",
         href: "https://i.imgur.com/g7WSe8Y.png",
       },
       {
         id: 3,
-        clicked: true,
+        clicked: "elbow",
         href: "https://i.imgur.com/Nmiy4b4.png",
       },
       {
         id: 4,
-        clicked: true,
+        clicked: "elbow",
         href: "https://i.imgur.com/sqHLxRM.png",
       },
     ],
   };
 
   logclick = (name, value) => {
-    console.log("running");
-    console.log(name, value);
     let newitem = {};
     let newarray = [];
     this.state.Pictures.forEach((element) => {
-      if (name === element.id) {
-        if (value === true) {
-          newitem.clicked = false;
-          newitem.id = name;
+      console.log(element.id);
+      console.log(name);
+      let name2 = parseInt(name);
+      if (name2 === element.id) {
+        if (value === "elbow") {
+          newitem.id = name2;
+          newitem.clicked = "knee";
           newitem.href = element.href;
           newarray.push(newitem);
+          console.log(newitem);
           alert("nice");
         } else {
           alert("bad");
@@ -47,15 +49,18 @@ class App extends Component {
         newarray.push(element);
       }
     });
+
     // const newLinks = this.state.links.concat(bookmark);
     for (var i = newarray.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
+      var j = Math.floor(Math.random() * i);
       var temp = newarray[i];
       newarray[i] = newarray[j];
       newarray[j] = temp;
     }
+    console.log(newarray);
 
-    this.setState({ links: newarray });
+    this.setState({ Pictures: newarray });
+    console.log(this.state);
   };
 
   // deleteBookmark = (bookmarkIndex) => {

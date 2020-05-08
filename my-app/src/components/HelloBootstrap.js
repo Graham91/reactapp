@@ -16,7 +16,15 @@ class Dinogame extends Component {
   handleInputChange = (event) => {
     console.log("clicked");
 
-    const { name, value } = event.target;
+    const eventTarget = event.target;
+    let value;
+
+    let name = eventTarget.name;
+    for (let i = 0; i < this.Pictures.length; i++) {
+      if (this.Pictures[i].id === parseInt(name)) {
+        value = this.Pictures[i].clicked;
+      }
+    }
     console.log(value);
     this.logclick(name, value);
   };
@@ -33,10 +41,10 @@ class Dinogame extends Component {
               <img
                 src={element.href}
                 alt={element.href}
-                value={element.clicked}
                 name={element.id}
-                key={index}
+                // burrito={element.clicked}S
                 onClick={this.handleInputChange}
+                key={index}
                 style={mystyle}
               />
             ))}
