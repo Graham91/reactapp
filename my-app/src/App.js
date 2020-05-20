@@ -4,6 +4,7 @@ import Dinogame from "./components/HelloBootstrap";
 class App extends Component {
   state = {
     youfoundthemall: 0,
+    wins: 0,
     pictures: [
       {
         id: 1,
@@ -29,7 +30,7 @@ class App extends Component {
   };
   logclick = (name, value) => {
     let newnumber = this.state.youfoundthemall;
-
+    let newwins = this.state.wins;
     if (this.state.youfoundthemall === 4) {
       alert("You found them all! And the game just reset!");
       let finishedarray = [];
@@ -41,7 +42,12 @@ class App extends Component {
         finishedarray.push(finalrestelement);
       });
       console.log(finishedarray);
-      this.setState({ pictures: finishedarray, youfoundthemall: 0 });
+      newwins++;
+      this.setState({
+        pictures: finishedarray,
+        youfoundthemall: 0,
+        wins: newwins,
+      });
     } else {
       let newitem = {};
       let newarray = [];
@@ -105,6 +111,7 @@ class App extends Component {
           pictures={this.state.pictures}
           logclick={this.logclick}
           function12={this.handleInputChange}
+          wins={this.state.wins}
         />
       </div>
     );

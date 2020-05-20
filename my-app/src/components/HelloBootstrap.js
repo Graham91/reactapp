@@ -26,6 +26,7 @@ function Dinogame(props) {
     <div className="container">
       <div className="jumbotron">
         <h1>DINO GAME</h1>
+        <h2>WINS: {props.wins}</h2>
       </div>
       <div className="card">
         <div className="card-body">
