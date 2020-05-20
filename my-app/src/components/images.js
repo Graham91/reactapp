@@ -1,5 +1,5 @@
 export default {
-  Pictures: {
+  pictures: {
     img: {
       img1: "https://imgur.com/LFXgB63r.png",
       img2: "https://imgur.com/g7WSe8Y.png",
